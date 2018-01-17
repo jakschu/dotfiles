@@ -1,5 +1,5 @@
 alias ls="ls --color"
 alias ll="ls -lh"
 alias  l="ls"
-alias la="la -la"
+alias la="ls -la"
 alias sl="ls -r"
