@@ -33,16 +33,19 @@ COLRESET="\["$ESC"[39m\]"
 
 PEACH="$ESC[48;5;209m"
 ID=$(id -u)
-unameOut="$(uname -s)"
+unameOut="$(uname -a)"
 
 case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
+    *Microsoft*) machine="WSL";;
+    Linux*)      machine=Linux;;
+    Darwin*)     machine=Mac;;
+    CYGWIN*)     machine=Cygwin;;
+    MINGW*)      machine=MinGw;;
+    *)           machine="UNKNOWN:${unameOut}"
 esac
+
 unset unameOut
+
 
 if [ $TERM == "linux" ]
 then
@@ -60,7 +63,7 @@ else
     DIRCOL=$LBLUE
 fi
 
-#echo ${machine}
+PROMPT_COMMAND='echo -ne "\033]0;[${machine}] ${USER}@${HOSTNAME}: ${PWD}\007"'
 
 # Check platform
 
