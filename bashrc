@@ -101,7 +101,7 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
 
-export PATH=$PATH:~/bin:~/go/bin
+export PATH=$PATH:~/bin:~/go/bin:~/.local/bin
 
 # bash history stats
 alias histstats="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v './' | column -c3 -s ' ' -t | sort -nr | nl |  head -n10"
